@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Todos os nossos serviçõs</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
+  <title>Portfólio de Projetos - Criação de Sites e Landing Pages</title>
+  <meta name="description" content="Transforme seu negócio com uma presença online impactante. Criamos landing pages, sites personalizados e ecommerces para ajudar sua empresa a crescer.">
+  <meta name="keywords" content="landing pages, criação de sites, e-commerce, desenvolvimento web">
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
@@ -27,57 +27,30 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
-  <!-- =======================================================
-  * Template Name: Gp
-  * Template URL: https://bootstrapmade.com/gp-free-multipurpose-html-bootstrap-template/
-  * Updated: Aug 15 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
-<body class="starter-page-page">
+<body class="portfolio-details-page">
 
   <header id="header" class="header d-flex align-items-center position-relative">
     <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
       <a href="index.html" class="logo d-flex align-items-center me-auto me-lg-0">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
-           <img src="assets/img/logo dev hq.png" alt=""> 
-        <span></span>
+        <img src="assets/img/logo dev hq.png" alt=""> 
+        <h1 class="sitename"></h1>
       </a>
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="#hero">Home<br></a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#team">Team</a></li>
-          <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-            <ul>
-              <li><a href="#">Dropdown 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                <ul>
-                  <li><a href="#">Deep Dropdown 1</a></li>
-                  <li><a href="#">Deep Dropdown 2</a></li>
-                  <li><a href="#">Deep Dropdown 3</a></li>
-                  <li><a href="#">Deep Dropdown 4</a></li>
-                  <li><a href="#">Deep Dropdown 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Dropdown 2</a></li>
-              <li><a href="#">Dropdown 3</a></li>
-              <li><a href="#">Dropdown 4</a></li>
-            </ul>
-          </li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#hero" class="active">Início<br></a></li>
+          <li><a href="#about">Sobre</a></li>
+          <li><a href="#services">Serviços</a></li>
+          <li><a href="#portfolio">Portfólio</a></li>
+          <li><a href="#contact">Contato</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <a class="btn-getstarted" href="index.html#about">Get Started</a>
+      <a class="btn-getstarted" href="https://api.whatsapp.com/send?phone=+5562995714707&text=Olá! Quero mais informações sobre ecommerces, sites e landing pages.">WhatsApp</a>
 
     </div>
   </header>
@@ -90,8 +63,8 @@
         <div class="container">
           <div class="row d-flex justify-content-center text-center">
             <div class="col-lg-8">
-              <h1>Starter Page</h1>
-              <p class="mb-0">Odio et unde deleniti. Deserunt numquam exercitationem. Officiis quo odio sint voluptas consequatur ut a odio voluptatem. Sit dolorum debitis veritatis natus dolores. Quasi ratione sint. Sit quaerat ipsum dolorem.</p>
+              <h1>Transforme Seu Negócio com a DevHQ</h1>
+              <p class="mb-0">Nós criamos **Landing Pages**, **Sites Personalizados** e **Ecommerces** que convertem visitantes em clientes. Deixe-nos ajudá-lo a criar uma presença digital impressionante e rentável para o seu negócio!</p>
             </div>
           </div>
         </div>
@@ -99,30 +72,88 @@
       <nav class="breadcrumbs">
         <div class="container">
           <ol>
-            <li><a href="index.html">Home</a></li>
-            <li class="current">Starter Page</li>
+            <li><a href="index.html">Início</a></li>
+            <li class="current">Landing Pages, Sites e Ecommerces</li>
           </ol>
         </div>
       </nav>
     </div><!-- End Page Title -->
 
-    <!-- Starter Section Section -->
-    <section id="starter-section" class="starter-section section">
+    <!-- Portfolio Details Section -->
+    <section id="portfolio-details" class="portfolio-details section">
 
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Starter Section</h2>
-        <p>Check Starter Section<br></p>
-      </div><!-- End Section Title -->
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-      <div class="container" data-aos="fade-up">
-        <p>Use this page as a starter for your own custom pages.</p>
+        <div class="row gy-4">
+
+          <div class="col-lg-8">
+            <div class="portfolio-details-slider swiper init-swiper">
+
+              <script type="application/json" class="swiper-config">
+                {
+                  "loop": true,
+                  "speed": 600,
+                  "autoplay": {
+                    "delay": 5000
+                  },
+                  "slidesPerView": "auto",
+                  "pagination": {
+                    "el": ".swiper-pagination",
+                    "type": "bullets",
+                    "clickable": true
+                  }
+                }
+              </script>
+
+              <div class="swiper-wrapper align-items-center">
+
+                <div class="swiper-slide">
+                  <img src="assets/img/portfolio/new/front.png" alt="">
+                </div>
+
+                <div class="swiper-slide">
+                  <img src="assets/img/portfolio/new/front2.png" alt="">
+                </div>
+
+                <div class="swiper-slide">
+                  <img src="assets/img/portfolio/new/front3.png" alt="">
+                </div>
+
+          
+
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="portfolio-info" data-aos="fade-up" data-aos-delay="200">
+              <h3>Porque escolher nossos serviços?</h3>
+              <ul>
+                <li><strong>Personalizado</strong>Fazemos de acordo com o gosto do cliente.</li>
+                <li><strong>Configuramos o seu</strong>Dominio</li>
+                <li><strong>Fortalecemos</strong> o seu negocio.</li>
+                <li><strong>Entre em contato:</strong>: <a href="https://api.whatsapp.com/send?phone=+5562995714707&text=Olá! Quero mais informações sobre ecommerces, sites e landing pages.">Clique Aqui</a></li>
+              </ul>
+            </div>
+            <div class="portfolio-description" data-aos="fade-up" data-aos-delay="300">
+              <h2>Criação de Landing Pages, Sites e Ecommerces de Alta Performance</h2>
+              <p>
+                Seu negócio merece mais do que um site qualquer. Criamos **Landing Pages** altamente otimizadas para conversão, **Sites Personalizados** que refletem sua marca e **Ecommerces** que vendem. Independentemente do seu ramo de atuação, nós criamos soluções que geram resultados concretos.
+              </p>
+              <p>
+                Estamos aqui para ajudar você a alcançar seus objetivos e ter sucesso online. Se você deseja melhorar sua presença digital, entre em contato e comece seu projeto conosco hoje mesmo!
+              </p>
+            </div>
+          </div>
+
+        </div>
+
       </div>
 
-    </section><!-- /Starter Section Section -->
+    </section><!-- /Portfolio Details Section -->
 
   </main>
-
   <footer id="footer" class="footer dark-background">
 
     <div class="footer-top">
@@ -130,7 +161,7 @@
         <div class="row gy-4">
           <div class="col-lg-4 col-md-6 footer-about">
             <a href="index.html" class="logo d-flex align-items-center">
-              <span class="sitename">GP</span>
+              <span class="sitename"> <img src="assets/img/logo dev hq.png" alt=""> </span>
             </a>
             <div class="footer-contact pt-3">
               <p>A108 Adam Street</p>
@@ -149,8 +180,8 @@
           <div class="col-lg-2 col-md-3 footer-links">
             <h4>Useful Links</h4>
             <ul>
-              <li><i class="bi bi-chevron-right"></i> <a href="#"> Home</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#"> About us</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="index.html"> Inicio</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#"> Contato</a></li>
               <li><i class="bi bi-chevron-right"></i> <a href="#"> Services</a></li>
               <li><i class="bi bi-chevron-right"></i> <a href="#"> Terms of service</a></li>
               <li><i class="bi bi-chevron-right"></i> <a href="#"> Privacy policy</a></li>
@@ -179,19 +210,6 @@
             </form>
           </div>
 
-        </div>
-      </div>
-    </div>
-
-    <div class="copyright">
-      <div class="container text-center">
-        <p>© <span>Copyright</span> <strong class="px-1 sitename">GP</strong> <span>All Rights Reserved</span></p>
-        <div class="credits">
-          <!-- All the links in the footer should remain intact. -->
-          <!-- You can delete the links only if you've purchased the pro version. -->
-          <!-- Licensing information: https://bootstrapmade.com/license/ -->
-          <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distributed by <a href="https://themewagon.com">ThemeWagon</a>
         </div>
       </div>
     </div>
