@@ -27,6 +27,8 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
+
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body class="portfolio-details-page">
@@ -153,6 +155,378 @@
 
     </section><!-- /Portfolio Details Section -->
 
+
+   <section class="hero-ue9style1">
+        <div class="hero-content-ue9style1">
+            <h1 style="color:#00f2ff;">Beneficios da Web</h1>
+            <p>Confira-se todos os beneficios de ter um Ecommerce online:</p>
+        </div>
+    </section>
+
+  <style>
+        :root {
+            --primary-color-ue9style1: #0077ff;
+            --secondary-color-ue9style1: #0928bf;
+            --accent-color-ue9style1: #00f2ff;
+            --dark-bg-ue9style1: #1f2937;
+            --light-text-ue9style1: #f9fafb;
+            --border-color-ue9style1: #60a5fa;
+            --timeline-color-ue9style1: #00e1ff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+        
+        body.body-ue9style1 {
+            background-color: #f3f4f6;
+            color: #111827;
+            line-height: 1.6;
+        }
+        
+        /* Header */
+        .hero-ue9style1 {
+            background: linear-gradient(135deg, #2f2f2f, #181818);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            margin-bottom: 60px;
+        }
+        
+        .hero-ue9style1::after {
+            content: '';
+            position: absolute;
+            bottom: -40px;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background-color: #2e2e2e;
+            transform: skewY(-3deg);
+            z-index: 1;
+        }
+        
+        .hero-content-ue9style1 {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-ue9style1 h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+            color: white;
+        }
+        
+        .hero-ue9style1 p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            color: white;
+        }
+        
+        /* Timeline */
+        .timeline-ue9style1 {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto 80px;
+            padding: 40px 0;
+        }
+        
+        .timeline-ue9style1::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--timeline-color-ue9style1);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+            border-radius: 2px;
+        }
+        
+        .step-ue9style1 {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: all 0.6s ease-out;
+        }
+        
+        .step-right-ue9style1 {
+            left: 50%;
+            transform: translateX(20px);
+        }
+        
+        .step-active-ue9style1 {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .step-ue9style1::after {
+            content: attr(data-step);
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: white;
+            border: 4px solid var(--primary-color-ue9style1);
+            border-radius: 50%;
+            top: 20px;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--primary-color-ue9style1);
+            font-size: 0.9rem;
+            transform: scale(0);
+            transition: transform 0.3s ease 0.3s;
+        }
+        
+        .step-active-ue9style1::after {
+            transform: scale(1);
+        }
+        
+        .step-left-ue9style1::after {
+            right: 2px;
+        }
+        
+        .step-right-ue9style1::after {
+            left: 2px;
+        }
+        
+        .step-content-ue9style1 {
+            padding: 30px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border-left: 4px solid var(--primary-color-ue9style1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .step-content-ue9style1:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+        }
+        
+        .step-icon-ue9style1 {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-color-ue9style1), var(--accent-color-ue9style1));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: white;
+            font-size: 20px;
+            transform: scale(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .step-active-ue9style1 .step-icon-ue9style1 {
+            transform: scale(1);
+        }
+        
+        .step-title-ue9style1 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--secondary-color-ue9style1);
+            font-weight: 700;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.4s ease 0.2s;
+        }
+        
+        .step-active-ue9style1 .step-title-ue9style1 {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .step-desc-ue9style1 {
+            color: #4b5563;
+            font-size: 1rem;
+            line-height: 1.7;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.4s ease 0.3s;
+        }
+        
+        .step-active-ue9style1 .step-desc-ue9style1 {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        /* Responsivo */
+        @media screen and (max-width: 768px) {
+            .hero-ue9style1 h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-ue9style1 p {
+                font-size: 1rem;
+            }
+            
+            .timeline-ue9style1::after {
+                left: 31px;
+            }
+            
+            .step-ue9style1 {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+                transform: translateY(20px);
+            }
+            
+            .step-right-ue9style1 {
+                left: 0;
+                transform: translateY(20px);
+            }
+            
+            .step-ue9style1::after {
+                left: 15px;
+            }
+            
+            .step-left-ue9style1::after,
+            .step-right-ue9style1::after {
+                left: 33px;
+            }
+            
+            .step-active-ue9style1 {
+                transform: translateY(0);
+            }
+        }
+        
+        /* Footer */
+        .footer-ue9style1 {
+            background-color: var(--dark-bg-ue9style1);
+            color: var(--light-text-ue9style1);
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .footer-content-ue9style1 {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .footer-logo-ue9style1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .footer-logo-ue9style1 span {
+            color: var(--accent-color-ue9style1);
+        }
+    </style>
+</head>
+<body class="body-ue9style1">
+    <!-- Hero Section -->
+   
+    
+    <!-- Timeline -->
+    <div class="timeline-ue9style1">
+        <!-- Etapa 1 -->
+        <div class="step-ue9style1 step-left-ue9style1" data-step="1">
+            <div class="step-content-ue9style1">
+                <div class="step-icon-ue9style1">
+                    <i class="fas fa-store"></i>
+                </div>
+                <h3 class="step-title-ue9style1">Comércio em Minutos</h3>
+                <p class="step-desc-ue9style1">Inicie seu e-commerce rapidamente com um processo simples e ágil. Configure seu site em poucos passos e comece a vender.</p>
+            </div>
+        </div>
+        
+        <!-- Etapa 2 -->
+        <div class="step-ue9style1 step-right-ue9style1" data-step="2">
+            <div class="step-content-ue9style1">
+                <div class="step-icon-ue9style1">
+                    <i class="fas fa-plug"></i>
+                </div>
+                <h3 class="step-title-ue9style1">Análises e Relatórios Avançados</h3>
+                <p class="step-desc-ue9style1">Acompanhe em tempo real o comportamento dos clientes, taxas de conversão e outros dados importantes para ajustar estratégias e melhorar a performance do seu e-commerce.</p>
+            </div>
+        </div>
+        
+        <!-- Etapa 3 -->
+        <div class="step-ue9style1 step-left-ue9style1" data-step="3">
+            <div class="step-content-ue9style1">
+                <div class="step-icon-ue9style1">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3 class="step-title-ue9style1">Organize sua Equipe</h3>
+                <p class="step-desc-ue9style1">Melhore a comunicação e o gerenciamento da sua equipe. Tome decisões rápidas e baseadas em dados em tempo real para otimizar os processos internos.</p>
+            </div>
+        </div>
+        
+        <!-- Etapa 4 -->
+        <div class="step-ue9style1 step-right-ue9style1" data-step="4">
+            <div class="step-content-ue9style1">
+                <div class="step-icon-ue9style1">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h3 class="step-title-ue9style1">Controle Total de Estoque</h3>
+                <p class="step-desc-ue9style1">Gerencie seu estoque de maneira eficiente, com visibilidade em tempo real de todos os produtos, evitando excessos ou faltas de mercadoria.</p>
+            </div>
+        </div>
+        
+        <!-- Etapa 5 -->
+        <div class="step-ue9style1 step-left-ue9style1" data-step="5">
+            <div class="step-content-ue9style1">
+                <div class="step-icon-ue9style1">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3 class="step-title-ue9style1">Monitore Resultados</h3>
+                <p class="step-desc-ue9style1">Acompanhe o desempenho do seu e-commerce em tempo real. Analise métricas e identifique oportunidades para melhorar a performance e aumentar as vendas.</p>
+            </div>
+        </div>
+        
+        <!-- Etapa 6 -->
+        <div class="step-ue9style1 step-right-ue9style1" data-step="6">
+            <div class="step-content-ue9style1">
+                <div class="step-icon-ue9style1">
+                    <i class="fas fa-expand"></i>
+                </div>
+                <h3 class="step-title-ue9style1">Escale Sem Limites</h3>
+                <p class="step-desc-ue9style1">Expanda seu negócio sem restrições. Com as ferramentas certas, você pode crescer de forma sustentável, atendendo um número cada vez maior de clientes sem perder qualidade.</p>
+            </div>
+        </div>
+    </div>
+    
+
+       <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const steps = document.querySelectorAll('.step-ue9style1');
+            
+            function checkVisibility() {
+                steps.forEach(step => {
+                    const stepPosition = step.getBoundingClientRect();
+                    const screenPosition = window.innerHeight / 1.3;
+                    
+                    if(stepPosition.top < screenPosition) {
+                        step.classList.add('step-active-ue9style1');
+                    }
+                });
+            }
+            
+            // Verifica a visibilidade ao carregar a página
+            checkVisibility();
+            
+            // Verifica a visibilidade ao rolar
+            window.addEventListener('scroll', checkVisibility);
+        });
+    </script>
+
   </main>
   <footer id="footer" class="footer dark-background">
 
@@ -164,16 +538,16 @@
               <span class="sitename"> <img src="assets/img/logo dev hq.png" alt=""> </span>
             </a>
             <div class="footer-contact pt-3">
-              <p>A108 Adam Street</p>
+              <!-- <p>A108 Adam Street</p>
               <p>New York, NY 535022</p>
               <p class="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-              <p><strong>Email:</strong> <span>info@example.com</span></p>
+              <p><strong>Email:</strong> <span>info@example.com</span></p> -->
             </div>
             <div class="social-links d-flex mt-4">
-              <a href=""><i class="bi bi-twitter-x"></i></a>
-              <a href=""><i class="bi bi-facebook"></i></a>
-              <a href=""><i class="bi bi-instagram"></i></a>
-              <a href=""><i class="bi bi-linkedin"></i></a>
+              <!-- <a href=""><i class="bi bi-twitter-x"></i></a> -->
+              <a href="https://www.facebook.com/Oficial.Devhq/"><i class="bi bi-facebook"></i></a>
+              <a href="https://www.instagram.com/dev__hq/"><i class="bi bi-instagram"></i></a>
+              <!-- <a href=""><i class="bi bi-linkedin"></i></a> -->
             </div>
           </div>
 
@@ -200,14 +574,14 @@
           </div>
 
           <div class="col-lg-4 col-md-12 footer-newsletter">
-            <h4>Our Newsletter</h4>
-            <p>Subscribe to our newsletter and receive the latest news about our products and services!</p>
-            <form action="forms/newsletter.php" method="post" class="php-email-form">
+            <!-- <h4>Our Newsletter</h4>
+            <p>Subscribe to our newsletter and receive the latest news about our products and services!</p> -->
+            <!-- <form action="forms/newsletter.php" method="post" class="php-email-form">
               <div class="newsletter-form"><input type="email" name="email"><input type="submit" value="Subscribe"></div>
               <div class="loading">Loading</div>
               <div class="error-message"></div>
               <div class="sent-message">Your subscription request has been sent. Thank you!</div>
-            </form>
+            </form> -->
           </div>
 
         </div>
