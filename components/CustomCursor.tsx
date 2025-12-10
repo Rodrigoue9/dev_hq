@@ -1,16 +1,37 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 
 const CustomCursor: React.FC = () => {
   const cursorRef = useRef<HTMLDivElement>(null);
   const followerRef = useRef<HTMLDivElement>(null);
+  // Começa assumindo que é mobile para evitar "piscada" do cursor na carga
+  const [isDesktop, setIsDesktop] = useState(false);
 
   useEffect(() => {
+    const checkDevice = () => {
+      // Verifica se o dispositivo tem suporte a mouse preciso (não é touch)
+      // E se a tela é maior que 1024px (largura de tablet em landscape)
+      const hasMouse = window.matchMedia('(pointer: fine)').matches;
+      const isLargeScreen = window.innerWidth >= 1024;
+      
+      setIsDesktop(hasMouse && isLargeScreen);
+    };
+
+    checkDevice();
+    window.addEventListener('resize', checkDevice);
+    return () => window.removeEventListener('resize', checkDevice);
+  }, []);
+
+  useEffect(() => {
+    // Se não for desktop, não roda a lógica pesada do GSAP
+    if (!isDesktop) return;
+
     const cursor = cursorRef.current;
     const follower = followerRef.current;
 
     if (!cursor || !follower) return;
 
+    // ... (Mantém a mesma lógica de movimento que você já tinha) ...
     const moveCursor = (e: MouseEvent) => {
       gsap.to(cursor, {
         x: e.clientX,
@@ -51,7 +72,10 @@ const CustomCursor: React.FC = () => {
         link.removeEventListener('mouseleave', handleUnhover);
       });
     };
-  }, []);
+  }, [isDesktop]); // Re-executa se mudar de mobile para desktop
+
+  // Se não for Desktop, não renderiza nada no DOM
+  if (!isDesktop) return null;
 
   return (
     <>
