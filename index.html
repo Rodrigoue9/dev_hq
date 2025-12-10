@@ -36,12 +36,19 @@
     </script>
 
     <style>
-      body {
-        background-color: #0A0A0A;
-        color: #FFFFFF;
-        overflow-x: hidden;
-        cursor: none;
-      }
+     body {
+    background-color: #0A0A0A;
+    color: #FFFFFF;
+    overflow-x: hidden;
+    /* cursor: none;  <-- REMOVA OU COMENTE ESTA LINHA AQUI */
+  }
+
+  /* Adicione este bloco novo: Só esconde o cursor se o dispositivo tiver mouse preciso */
+  @media (hover: hover) and (pointer: fine) {
+    body {
+      cursor: none;
+    }
+  }
       
       html.lenis, html.lenis body { height: auto; }
       .lenis.lenis-smooth { scroll-behavior: auto !important; }
