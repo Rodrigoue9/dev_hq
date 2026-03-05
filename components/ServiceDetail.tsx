@@ -1,9 +1,10 @@
 
-import React, { useEffect, useRef, useMemo } from 'react';
+import React, { useEffect, useRef, useMemo, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SERVICES, PROJECTS, SERVICE_TYPE_MAP } from '../constants';
+import { ProjectItem } from '../types';
 import ContactForm from './ContactForm';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -21,10 +22,20 @@ const ServiceDetail: React.FC = () => {
   const service = useMemo(() => SERVICES.find(s => s.id === id), [id]);
   
   const projectType = id ? SERVICE_TYPE_MAP[id] : null;
-  const relatedProjects = useMemo(() => 
-    PROJECTS.filter(p => p.type === projectType),
-    [projectType]
-  );
+
+  const relatedProjects = useMemo(() => {
+    if (id === 'landing-pages') {
+      // Return all projects that are not E-commerce
+      return PROJECTS.filter(p => p.type !== 'E-commerce' && p.type !== 'E-commerce & Painel Exclusivo');
+    }
+    return PROJECTS.filter(p => p.type === projectType);
+  }, [projectType, id]);
+
+  const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
+  
+  // E-commerce specific project photos
+  const ecommerceProject = PROJECTS.find(p => p.client === "Promobia Móveis");
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -33,6 +44,8 @@ const ServiceDetail: React.FC = () => {
       navigate('/');
       return;
     }
+
+    document.title = `DEV_HQ | ${service.title}`;
 
     // Entrance Animation
     gsap.fromTo(containerRef.current,
@@ -127,7 +140,7 @@ const ServiceDetail: React.FC = () => {
       );
     }
 
-    // Related Projects Animation
+    // Related Projects Animation (runs immediately with a short delay)
     if (relatedRef.current && relatedProjects.length > 0) {
       const cards = relatedRef.current.querySelectorAll('.project-card');
       gsap.fromTo(cards,
@@ -136,12 +149,9 @@ const ServiceDetail: React.FC = () => {
           opacity: 1, 
           y: 0, 
           duration: 0.8, 
-          stagger: 0.2, 
+          stagger: 0.15, 
           ease: "power2.out",
-          scrollTrigger: {
-            trigger: relatedRef.current,
-            start: "top 85%",
-          }
+          delay: 0.5
         }
       );
     }
@@ -163,6 +173,7 @@ const ServiceDetail: React.FC = () => {
           <div>
             <button 
               onClick={() => navigate('/')}
+              aria-label="Voltar para a página inicial"
               className="group flex items-center gap-2 text-silver/40 hover:text-white mb-12 text-xs uppercase tracking-[0.2em] transition-all duration-300 w-fit"
             >
               <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center group-hover:border-cyan/50 group-hover:bg-cyan/5 transition-all">
@@ -320,6 +331,65 @@ const ServiceDetail: React.FC = () => {
                   ))}
                </div>
             </div>
+
+            {/* E-COMMERCE GALLERY SHOWCASE */}
+            {ecommerceProject && (
+               <div className="mt-32">
+                 <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+                   <div className="max-w-xl">
+                     <span className="font-display text-xs text-cyan uppercase tracking-[0.4em] mb-4 block">CASE STUDY</span>
+                     <h2 className="font-display text-4xl md:text-5xl text-white leading-tight mb-4">
+                       Por dentro de uma<br /><span className="text-white/30 italic">High-Converting Store</span>
+                     </h2>
+                     <p className="font-sans text-silver/60">
+                       Veja um exemplo de um e-commerce feito para uma loja de roupas. Arraste para explorar o nível de detalhes da plataforma, desenvolvida para maximizar a conversão em cada etapa da jornada.
+                     </p>
+                   </div>
+                   <a 
+                     href={ecommerceProject.link}
+                     target="_blank"
+                     rel="noopener noreferrer" 
+                     className="px-6 py-3 rounded-full border border-white/20 bg-white/5 hover:bg-white/10 hover:border-cyan/50 transition-all font-display text-xs uppercase tracking-widest flex items-center gap-3 shrink-0"
+                   >
+                     Ver Loja Ao Vivo
+                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2">
+                       <path d="M1 11L11 1M11 1H3M11 1V9" />
+                     </svg>
+                   </a>
+                 </div>
+
+                 {/* Custom Horizontal Scroll Gallery */}
+                 <div className="relative w-full rounded-[40px] overflow-hidden bg-[#0a0a0a] border border-white/10">
+                   {/* Main Active Media */}
+                   <div className="relative aspect-video w-full bg-black">
+                      <img 
+                        src={ecommerceProject.images?.[activeImageIndex] || ecommerceProject.image} 
+                        alt={`Screenshot ${activeImageIndex + 1}`}
+                        className="w-full h-full object-contain"
+                      />
+                      
+                      <div className="absolute top-6 left-6 flex gap-2">
+                        <span className="px-4 py-2 bg-black/80 backdrop-blur-md rounded-full border border-white/10 font-display text-xs text-white uppercase tracking-widest">
+                           Tela {activeImageIndex + 1} de {ecommerceProject.images?.length || 1}
+                        </span>
+                      </div>
+                   </div>
+
+                   {/* Thumbnails Row */}
+                   <div className="flex overflow-x-auto gap-4 p-6 no-scrollbar custom-scrollbar bg-[#050505]">
+                      {ecommerceProject.images?.map((img, idx) => (
+                        <button
+                          key={idx}
+                          onClick={() => setActiveImageIndex(idx)}
+                          className={`relative shrink-0 w-32 md:w-48 aspect-video rounded-xl overflow-hidden border-2 transition-all duration-300 ${activeImageIndex === idx ? 'border-cyan scale-105 shadow-[0_0_20px_rgba(0,229,255,0.2)]' : 'border-white/10 opacity-40 hover:opacity-100 hover:border-white/30'}`}
+                        >
+                          <img src={img} alt={`Thumb ${idx+1}`} className="w-full h-full object-cover" />
+                        </button>
+                      ))}
+                   </div>
+                 </div>
+               </div>
+            )}
           </div>
         )}
 
@@ -465,12 +535,13 @@ const ServiceDetail: React.FC = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
               {relatedProjects.map((project, index) => (
-                <a 
+                <button 
                   key={index}
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="project-card group block relative"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setSelectedProject(project);
+                  }}
+                  className="project-card group block relative w-full text-left"
                 >
                   <div className="relative aspect-[16/11] rounded-[32px] overflow-hidden border border-white/5 bg-[#0D0D0D]">
                     <img 
@@ -512,11 +583,73 @@ const ServiceDetail: React.FC = () => {
                       </div>
                     </div>
                   </div>
-                </a>
+                </button>
               ))}
             </div>
           </div>
         )}
+
+      {/* Lightbox Gallery Modal */}
+      {selectedProject && (
+        <div className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-md flex flex-col">
+          {/* Header */}
+          <div className="flex justify-between items-center p-6 md:p-10 z-[101] bg-gradient-to-b from-black/80 to-transparent">
+            <div>
+              <h2 className="font-display text-2xl md:text-4xl text-white">{selectedProject.client}</h2>
+              <span className="font-accent text-xs text-cyan uppercase tracking-widest">{selectedProject.type}</span>
+            </div>
+            <div className="flex items-center gap-6">
+              <a 
+                href={selectedProject.link} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hidden md:flex items-center gap-2 text-xs uppercase tracking-widest bg-white/10 hover:bg-cyan hover:text-black py-3 px-6 rounded-full transition-colors"
+              >
+                Visitar Site Ao Vivo
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+              </a>
+              <button 
+                onClick={() => setSelectedProject(null)}
+                className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors"
+                aria-label="Fechar Galeria"
+              >
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+              </button>
+            </div>
+          </div>
+
+          {/* Scrollable Gallery Area */}
+          <div className="flex-1 overflow-y-auto w-full flex flex-col items-center pb-20 px-4 md:px-0 scroll-smooth" data-lenis-prevent>
+            <div className="w-full max-w-5xl space-y-4 md:space-y-12 pt-10">
+              {selectedProject.images && selectedProject.images.map((imgSrc, idx) => (
+                <div key={idx} className="relative w-full rounded-lg md:rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+                  <div className="absolute inset-0 bg-white/5 animate-pulse" />
+                  <img 
+                    src={imgSrc} 
+                    alt={`${selectedProject.client} - Tela ${idx + 1}`} 
+                    loading="lazy"
+                    className="w-full h-auto relative z-10 block"
+                    onLoad={(e) => {
+                      (e.target as HTMLImageElement).previousElementSibling?.remove();
+                    }}
+                  />
+                </div>
+              ))}
+            </div>
+            
+            <div className="mt-16 text-center md:hidden">
+               <a 
+                href={selectedProject.link} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-xs uppercase tracking-widest bg-cyan text-black py-4 px-8 rounded-full font-bold"
+              >
+                Visitar Site Ao Vivo
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
       </div>
     </div>
   );

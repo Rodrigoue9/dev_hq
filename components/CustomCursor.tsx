@@ -32,19 +32,16 @@ const CustomCursor: React.FC = () => {
     if (!cursor || !follower) return;
 
     // ... (Mantém a mesma lógica de movimento que você já tinha) ...
+    const cursorX = gsap.quickTo(cursor, "x", {duration: 0.1, ease: 'power2.out'});
+    const cursorY = gsap.quickTo(cursor, "y", {duration: 0.1, ease: 'power2.out'});
+    const followerX = gsap.quickTo(follower, "x", {duration: 0.5, ease: 'power3.out'});
+    const followerY = gsap.quickTo(follower, "y", {duration: 0.5, ease: 'power3.out'});
+
     const moveCursor = (e: MouseEvent) => {
-      gsap.to(cursor, {
-        x: e.clientX,
-        y: e.clientY,
-        duration: 0.1,
-        ease: 'power2.out'
-      });
-      gsap.to(follower, {
-        x: e.clientX,
-        y: e.clientY,
-        duration: 0.5,
-        ease: 'power3.out'
-      });
+      cursorX(e.clientX);
+      cursorY(e.clientY);
+      followerX(e.clientX);
+      followerY(e.clientY);
     };
 
     const handleHover = () => {

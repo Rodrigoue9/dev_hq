@@ -41,7 +41,7 @@ export const SERVICES: ServiceItem[] = [
 ];
 
 export const CONTACT_PHONE = "+55 62 99571-4707";
-export const CONTACT_CTA = "VAMOS CONVERSAR?";
+export const CONTACT_CTA = "QUERO ESCALAR MEU NEGÓCIO AGORA";
 
 export const SERVICE_TYPE_MAP: Record<string, string> = {
   "ecommerce-pro": "E-commerce",
@@ -50,98 +50,96 @@ export const SERVICE_TYPE_MAP: Record<string, string> = {
   "trafego-pago": "Ads Strategy"
 };
 
-export const getWhatsAppLink = (text: string) => 
+export const getWhatsAppLink = (text: string) =>
   `https://wa.me/${CONTACT_PHONE.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(text)}`;
 
 export const PROJECTS: ProjectItem[] = [
   {
-    client: "Bio Clean Store",
-    type: "E-commerce",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=800",
-    link: getWhatsAppLink("Olá! Gostaria de conhecer o case E-commerce da Bio Clean."),
-    tags: ["React", "Node.js", "Stripe"],
-    year: "2024",
-    roi: "+45% Conversão"
-  },
-  {
-    client: "Lançamento InfoExpert",
-    type: "Landing Page",
-    image: "https://images.unsplash.com/photo-1551288049-bbbda5366392?auto=format&fit=crop&q=80&w=800",
-    link: getWhatsAppLink("Olá! Vi o case InfoExpert e quero uma Landing Page ultra rápida assim."),
-    tags: ["Next.js", "Vercel", "Performance"],
-    year: "2024",
-    roi: "Load: 0.6s"
-  },
-  {
-    client: "Rebranding TechStart",
-    type: "Design Digital",
-    image: "https://images.unsplash.com/photo-1634942537034-2531766767d1?auto=format&fit=crop&q=80&w=800",
-    link: getWhatsAppLink("Olá! Vi o rebranding da TechStart e quero algo nesse nível."),
-    tags: ["Illustrator", "Photoshop", "Branding"],
-    year: "2024",
-    roi: "Nova Identidade"
-  },
-  {
-    client: "Lançamento Meteórico",
-    type: "Ads Strategy",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
-    link: getWhatsAppLink("Olá! Gostaria de saber mais sobre o ROI de 12x no tráfego pago."),
-    tags: ["Google Ads", "Youtube Ads", "Scale"],
-    year: "2024",
-    roi: "ROAS 12x"
-  },
-  {
-    client: "Página de Vendas Nutri",
-    type: "Landing Page",
-    image: "https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&q=80&w=800",
-    link: getWhatsAppLink("Olá! Preciso de uma página de vendas otimizada como a da Nutri."),
-    tags: ["React", "SEO", "CRO"],
+    slug: "agencia-e-digital",
+    client: "Agência E-Digital",
+    type: "Site Institucional / Landing Page",
+    image: "/projects/agenciaedigital/1.jpg",
+    images: Array.from({ length: 5 }, (_, i) => `/projects/agenciaedigital/${i + 1}.jpg`),
+    link: "https://agenciaedigital.netlify.app/",
+    tags: ["Agência", "Design", "Performance"],
     year: "2024",
     roi: "Score 100/100"
   },
   {
-    client: "Pack Criativos Black Friday",
-    type: "Design Digital",
-    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=800",
-    link: getWhatsAppLink("Olá! Preciso de criativos que convertam como o pack da Black Friday."),
-    tags: ["After Effects", "Blender", "3D"],
-    year: "2024",
-    roi: "+300% CTR"
-  },
-  {
-    client: "Invest Imóveis",
-    type: "Ads Strategy",
-    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=800",
-    link: getWhatsAppLink("Olá! Quero saber como conseguiram leads a R$ 2,50 para imobiliária."),
-    tags: ["Meta Ads", "Remarketing", "CRM"],
-    year: "2024",
-    roi: "CPL R$ 2,50"
-  },
-  {
-    client: "Gourmet Coffee Hub",
-    type: "E-commerce",
-    image: "https://images.unsplash.com/photo-1559925393-8be0ec41b501?auto=format&fit=crop&q=80&w=800",
-    link: getWhatsAppLink("Olá! Gostaria de conhecer o case E-commerce do Gourmet Coffee Hub."),
-    tags: ["Next.js", "Shopify", "UI/UX"],
-    year: "2023",
-    roi: "R$ 200k+ Vendas"
-  },
-  {
-    client: "Solar Energy LP",
+    slug: "site-vendas-pdf",
+    client: "Site de Vendas de PDF",
     type: "Landing Page",
-    image: "https://images.unsplash.com/photo-1509391366360-fe5bb58583bb?auto=format&fit=crop&q=80&w=800",
-    link: getWhatsAppLink("Olá! Gostaria de ver o case da Solar Energy."),
-    tags: ["Tailwind", "GSAP", "Conversion"],
-    year: "2024",
-    roi: "Lead R$ 1,40"
+    image: "/projects/testegabrielpfd/1.jpg",
+    images: Array.from({ length: 5 }, (_, i) => `/projects/testegabrielpfd/${i + 1}.jpg`),
+    link: "https://testegabrielpfd.netlify.app/",
+    tags: ["Landing Page", "Vendas", "PDF"],
+    year: "2024"
   },
   {
-    client: "Masterclass Financeira",
-    type: "Landing Page",
-    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=800",
-    link: getWhatsAppLink("Olá! Gostaria de ver a Landing Page da Masterclass Financeira."),
-    tags: ["Copywriting", "Fast Load", "Marketing"],
+    slug: "ceara-pragas",
+    client: "Ceará Pragas",
+    type: "Site Institucional",
+    image: "/projects/ceara-pragas/1.jpg",
+    images: Array.from({ length: 5 }, (_, i) => `/projects/ceara-pragas/${i + 1}.jpg`),
+    link: "https://ceara-pragas.com.br/",
+    tags: ["Institucional", "SEO"],
     year: "2023",
-    roi: "3.5% CVR"
+    roi: "Lead Qualificado"
+  },
+  {
+    slug: "unopar-ceres",
+    client: "Unopar Ceres",
+    type: "Landing Page Educacional",
+    image: "/projects/unopar-ceres/1.jpg",
+    images: Array.from({ length: 5 }, (_, i) => `/projects/unopar-ceres/${i + 1}.jpg`),
+    link: "https://unopar-ceres.netlify.app/",
+    tags: ["Educação", "Captação", "Polos"],
+    year: "2024",
+    roi: "Alta Matrícula"
+  },
+  {
+    slug: "anhanguera-jaragua",
+    client: "Anhanguera Jaraguá",
+    type: "Landing Page Educacional",
+    image: "/projects/anhanguera-jaragua/1.jpg",
+    images: Array.from({ length: 5 }, (_, i) => `/projects/anhanguera-jaragua/${i + 1}.jpg`),
+    link: "https://anhanguera-jaragua.netlify.app/",
+    tags: ["Educação", "Universidade"],
+    year: "2024"
+  },
+  {
+    slug: "unopar-rubiataba",
+    client: "Unopar Rubiataba",
+    type: "Landing Page Educacional",
+    image: "/projects/unopar-rubiataba/1.jpg",
+    images: Array.from({ length: 5 }, (_, i) => `/projects/unopar-rubiataba/${i + 1}.jpg`),
+    link: "https://rodrigoue9.github.io/site-unopar-rubiataba/index.html",
+    tags: ["Educação", "GitHub Pages"],
+    year: "2024"
+  },
+  {
+    slug: "radar-vocacional",
+    client: "Radar Vocacional",
+    type: "Plataforma / Landing Page",
+    image: "/projects/radarvocacional/1.jpg",
+    images: Array.from({ length: 5 }, (_, i) => `/projects/radarvocacional/${i + 1}.jpg`),
+    link: "https://radarvocacional.netlify.app/",
+    tags: ["Vocacional", "Testes", "UI/UX"],
+    year: "2024",
+    roi: "Alto Engajamento"
+  },
+  {
+    slug: "promobia-moveis",
+    client: "Promobia Móveis",
+    type: "E-commerce & Painel Exclusivo",
+    image: "/projects/promobia/6.jpg",
+    images: [
+      ...Array.from({ length: 15 }, (_, i) => `/projects/promobia/${i + 1}.jpg`),
+      ...Array.from({ length: 15 }, (_, i) => `/projects/promobia-admin/${i + 1}.jpg`)
+    ],
+    link: "https://promobia.online/",
+    tags: ["E-commerce", "Dashboard", "Loja Virtual", "Admin"],
+    year: "2024",
+    roi: "+ Alta Conversão e Gestão"
   }
 ];

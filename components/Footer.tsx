@@ -67,8 +67,8 @@ const Footer: React.FC = () => {
         rel="noopener noreferrer"
         className="relative group w-48 h-48 rounded-full border border-white/20 flex items-center justify-center backdrop-blur-sm transition-colors hover:border-cyan/50 hover:bg-white/5"
       >
-        <span ref={textRef} className="relative z-10 font-sans font-semibold text-sm tracking-widest text-white group-hover:text-cyan transition-colors">
-          FALE AGORA
+        <span ref={textRef} className="relative z-10 font-sans font-semibold text-sm tracking-widest text-white text-center px-4 group-hover:text-cyan transition-colors">
+          AGENDAR<br/>SESSÃO
         </span>
         
         {/* Hover Pulse */}

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { createRoot } from 'react-dom/client';
 import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Lenis from 'lenis';
@@ -8,8 +8,11 @@ import Preloader from './components/Preloader';
 import CustomCursor from './components/CustomCursor';
 import CanvasBackground from './components/CanvasBackground';
 import Header from './components/Header';
-import Home from './components/Home';
-import ServiceDetail from './components/ServiceDetail';
+// Lazy loaded components
+const Home = lazy(() => import('./components/Home'));
+const ServiceDetail = lazy(() => import('./components/ServiceDetail'));
+const ProjectDetail = lazy(() => import('./components/ProjectDetail'));
+const AnaFProposal = lazy(() => import('./components/AnaFProposal'));
 
 // ScrollToTop component to ensure navigation starts at top
 const ScrollToTop = () => {
@@ -62,10 +65,14 @@ const App: React.FC = () => {
 
         {/* Routes */}
         <div className="relative z-10">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/service/:id" element={<ServiceDetail />} />
-          </Routes>
+          <Suspense fallback={<div className="min-h-screen w-full bg-bg" />}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/service/:id" element={<ServiceDetail />} />
+              <Route path="/project/:slug" element={<ProjectDetail />} />
+              <Route path="/ana-f" element={<AnaFProposal />} />
+            </Routes>
+          </Suspense>
         </div>
       </main>
     </Router>
